@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace RobotsVsDinosaurs
 {
-    class DinosaurAttack
+    public class DinosaurAttackType
     {
+        public string type;
+        public int power = 100;
+        public int accuracy;
+
+
+        public DinosaurAttackType(string type)
+        {
+            this.type = type;
+
+        }
     }
 }

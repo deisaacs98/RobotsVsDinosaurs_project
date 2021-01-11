@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace RobotsVsDinosaurs
 {
-    class Robot
+    public class Robot
     {
-    }
+        public string name;
+        public int health = 100;
+        public int powerLevel;
+        public Weapon weapon;
+
+
+        public Robot(string name)
+        {
+            this.name = name;
+            
+        }
+        public Weapon ChooseWeapon()
+        {
+            Console.WriteLine("Choose a weapon:");
+            string type = Console.ReadLine();
+            weapon= new Weapon(type);
+            return weapon;
+        }
+
+
 }

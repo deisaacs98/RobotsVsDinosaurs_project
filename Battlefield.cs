@@ -8,5 +8,24 @@ namespace RobotsVsDinosaurs
 {
     class Battlefield
     {
+        public Fleet fleet = new Fleet();
+        public Herd herd = new Herd();
+
+        
+        public Battlefield()
+        {
+        
+        }
+
+        public void AttackDinosaur()
+        {
+
+        }
+
+        public void AttackRobot()
+        {
+
+        }
+
     }
 }
