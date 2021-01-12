@@ -36,29 +36,33 @@ namespace RobotsVsDinosaurs
 
         public void AddWeaponsToCache()
         {
+            Weapon weapon;
             Console.WriteLine("Each robot can carry four weapons. Choose wisely.");
             Console.WriteLine(robot1.name+":");
             for (int i = 0; i < 4; i++)
             {
-                Weapon weapon = robot1.ChooseWeapon();
-                robot1.cache[i] = weapon; 
-                Console.WriteLine("You have added " + weapon + " to your cache.");
+                weapon = robot1.ChooseWeapon();
+                robot1.cache[i] = weapon;
+                Console.Clear();
+                Console.WriteLine("You have added " + weapon.type + " to your cache.");
                 
             }
             Console.WriteLine(robot2.name + ":");
             for (int i = 0; i < 4; i++)
             {
-                Weapon weapon = robot2.ChooseWeapon();
+                weapon = robot2.ChooseWeapon();
                 robot2.cache[i] = weapon;
-                Console.WriteLine("You have added " + weapon + " to your cache.");
+                Console.Clear();
+                Console.WriteLine("You have added " + weapon.type + " to your cache.");
 
             }
             Console.WriteLine(robot3.name + ":");
             for (int i = 0; i < 4; i++)
             {
-                Weapon weapon = robot3.ChooseWeapon();
+                weapon = robot3.ChooseWeapon();
                 robot3.cache[i] = weapon;
-                Console.WriteLine("You have added " + weapon + " to your cache.");
+                Console.Clear();
+                Console.WriteLine("You have added " + weapon.type + " to your cache.");
 
             }
             

@@ -11,8 +11,8 @@ namespace RobotsVsDinosaurs
         public string type;
         public int health = 100;
         public int energy=100;
-        public DinosaurAttackType attack;
-        public DinosaurAttackType[] attacks;
+        
+        public DinosaurAttackType[] attacks= new DinosaurAttackType[4];
         
 
 
@@ -26,9 +26,9 @@ namespace RobotsVsDinosaurs
 
         public DinosaurAttackType ChooseDinoAttack()
         {
-
-            bool validInput = true;
-            while (validInput)
+            DinosaurAttackType attack=new DinosaurAttackType("",0,0);
+            bool run = true;
+            do
             {
                 Console.WriteLine("Choose an attack:");
                 Console.WriteLine();
@@ -42,57 +42,93 @@ namespace RobotsVsDinosaurs
                 switch (selection)
                 {
                     case "a":
-                        attack = new DinosaurAttackType("Bite", 30, 90);
+                        attack.type = "Bite";
+                        attack.power = 30;
+                        attack.accuracy = 90;
+                        run = false;
                         break;
                     case "b":
-                        attack = new DinosaurAttackType("Stomp", 80, 10);
+                        attack.type = "Stomp";
+                        attack.power = 80;
+                        attack.accuracy = 30;
+                        run = false;
                         break;
                     case "c":
-                        attack = new DinosaurAttackType("Scratch", 0, 0);
+                        attack.type = "Scratch";
+                        attack.power = 10;
+                        attack.accuracy = 80;
+                        run = false;
                         break;
                     case "d":
-                        attack = new DinosaurAttackType("Tail Whip", 40, 90);
+                        attack.type = "Tail Whip";
+                        attack.power = 40;
+                        attack.accuracy = 90;
+                        run = false;
 
                         break;
                     case "e":
-                        attack = new DinosaurAttackType("Growl", 3, 10);
+                        attack.type = "Growl";
+                        attack.power = 3;
+                        attack.accuracy = 95;
+                        run = false;
 
                         break;
                     case "f":
-                        attack = new DinosaurAttackType("Roar", 0, 0);
+                        attack.type = "Roar";
+                        attack.power = 4;
+                        attack.accuracy = 94;
+                        run = false;
 
                         break;
                     case "g":
-                        attack = new DinosaurAttackType("Body Slam", 100, 5);
+                        attack.type = "Body Slam";
+                        attack.power = 26;
+                        attack.accuracy = 98;
+                        run = false;
 
                         break;
                     case "h":
-                        attack = new DinosaurAttackType("Piledriver", 0, 0);
+                        attack.type = "Piledriver";
+                        attack.power = 60;
+                        attack.accuracy = 60;
+                        run = false;
 
                         break;
                     case "i":
-                        attack = new DinosaurAttackType("Slap", 0, 0);
+                        attack.type = "Slap";
+                        attack.power = 10;
+                        attack.accuracy = 98;
+                        run = false;
 
                         break;
                     case "j":
-                        attack = new DinosaurAttackType("Spit", 15, 90);
+                        attack.type = "Spit";
+                        attack.power = 15;
+                        attack.accuracy = 90;
+                        run = false;
 
                         break;
                     case "k":
-                        attack = new DinosaurAttackType("Punch", 0, 0);
+                        attack.type = "Punch";
+                        attack.power = 10;
+                        attack.accuracy = 93;
+                        run = false;
 
                         break;
                     case "l":
-                        attack = new DinosaurAttackType("Kick", 0, 0);
+                        attack.type = "Kick";
+                        attack.power = 20;
+                        attack.accuracy = 80;
+                        run = false;
                         break;
                     default:
-                        validInput = false;
+                        
                         Console.WriteLine("Please enter the letter corresponding to the attack.");
-                        continue;
+                        break;
 
                 }
 
-            }
+            }while (run) ;
             return attack;
 
         }

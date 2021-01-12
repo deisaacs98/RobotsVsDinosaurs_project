@@ -35,7 +35,7 @@ namespace RobotsVsDinosaurs
             bool validInput = true;
             while (validInput)
             {
-                Console.WriteLine(dinosaur + ":     Choose your weapon:");
+                Console.WriteLine(dinosaur + ":     Choose your attack:");
                 Console.WriteLine("a. " + dinosaur.attacks[0] + "           b. " + dinosaur.attacks[1]);
                 Console.WriteLine("c. " + dinosaur.attacks[2] + "           d. " + dinosaur.attacks[4]);
 
@@ -217,7 +217,9 @@ namespace RobotsVsDinosaurs
 
             while (deadDinos<3&&brokenBots<3)
             {
-                
+                RobotTurn();
+                DinoTurn();
+
                 
                     
             }
