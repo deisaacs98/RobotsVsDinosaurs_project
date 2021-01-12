@@ -19,7 +19,12 @@ namespace RobotsVsDinosaurs
         public Robot robot3 = new Robot("Data");
 
         
-
+        public Fleet(Robot[] fleet)
+        {
+            this.fleet = fleet;
+            
+            
+        }
         public void AddRobotsToFleet()
         {
             fleet[0]=robot1;

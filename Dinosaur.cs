@@ -10,67 +10,91 @@ namespace RobotsVsDinosaurs
     {
         public string type;
         public int health = 100;
-        public int energy;
+        public int energy=100;
         public DinosaurAttackType attack;
+        public DinosaurAttackType[] attacks;
         
 
 
-        public Dinosaur(string type, int energy)
+        public Dinosaur(string type)
         {
             this.type = type;
-            this.energy = energy;
+            
 
             
         }
 
         public DinosaurAttackType ChooseDinoAttack()
         {
-            Console.WriteLine("Choose an attack:");
-            string selection = Console.ReadLine();
-            switch (selection)
-            {
-                case "a":
-                    attack = new DinosaurAttackType("Plasma Pistol", 0, 0);
-                    return attack;
-                case "b":
-                    attack = new DinosaurAttackType("LASER TASER", 0, 0);
-                    return attack;
-                case "c":
-                    attack = new DinosaurAttackType("Atomic RPG", 0, 0);
-                    return attack;
-                case "d":
-                    attack = new DinosaurAttackType("Phaser", 0, 0);
-                    return attack;
-                case "e":
-                    attack = new DinosaurAttackType("Death Ray", 0, 0);
-                    return attack;
-                case "f":
-                    attack = new DinosaurAttackType("Rock", 0, 0);
-                    return attack;
-                case "g":
-                    attack = new DinosaurAttackType("Flamethrower", 0, 0);
-                    return attack;
-                case "h":
-                    attack = new DinosaurAttackType("Switchblade", 0, 0);
-                    return attack;
-                case "i":
-                    attack = new DinosaurAttackType("Broken Beer Bottle", 0, 0);
-                    return attack;
-                case "j":
-                    attack = new DinosaurAttackType("Spiked Bat", 0, 0);
-                    return attack;
-                case "k":
-                    attack = new DinosaurAttackType("Folding Chair", 0, 0);
-                    return attack;
-                case "l":
-                    attack = new DinosaurAttackType("Pool Cue", 0, 0);
-                    return attack;
 
+            bool validInput = true;
+            while (validInput)
+            {
+                Console.WriteLine("Choose an attack:");
+                Console.WriteLine();
+                Console.WriteLine("a. Bite               b. Stomp                    c. Scratch");
+                Console.WriteLine("d. Tail Whip          e. Growl                    f. Roar");
+                Console.WriteLine("g. Body Slam          h. Piledriver               i. Slap");
+                Console.WriteLine("j. Spit               k. Punch                    l. Kick");
+
+                        
+        string selection = Console.ReadLine();
+                switch (selection)
+                {
+                    case "a":
+                        attack = new DinosaurAttackType("Bite", 30, 90);
+                        break;
+                    case "b":
+                        attack = new DinosaurAttackType("Stomp", 80, 10);
+                        break;
+                    case "c":
+                        attack = new DinosaurAttackType("Scratch", 0, 0);
+                        break;
+                    case "d":
+                        attack = new DinosaurAttackType("Tail Whip", 40, 90);
+
+                        break;
+                    case "e":
+                        attack = new DinosaurAttackType("Growl", 3, 10);
+
+                        break;
+                    case "f":
+                        attack = new DinosaurAttackType("Roar", 0, 0);
+
+                        break;
+                    case "g":
+                        attack = new DinosaurAttackType("Body Slam", 100, 5);
+
+                        break;
+                    case "h":
+                        attack = new DinosaurAttackType("Piledriver", 0, 0);
+
+                        break;
+                    case "i":
+                        attack = new DinosaurAttackType("Slap", 0, 0);
+
+                        break;
+                    case "j":
+                        attack = new DinosaurAttackType("Spit", 15, 90);
+
+                        break;
+                    case "k":
+                        attack = new DinosaurAttackType("Punch", 0, 0);
+
+                        break;
+                    case "l":
+                        attack = new DinosaurAttackType("Kick", 0, 0);
+                        break;
+                    default:
+                        validInput = false;
+                        Console.WriteLine("Please enter the letter corresponding to the weapon.");
+                        break;
+
+                }
 
             }
-            weapon = new Weapon(type, 100, 100);
-            i
-            return weapon;
+            return attack;
+
         }
 
     }

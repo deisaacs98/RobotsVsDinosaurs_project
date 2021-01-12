@@ -13,9 +13,11 @@ namespace RobotsVsDinosaurs
         public int accuracy;
 
 
-        public DinosaurAttackType(string type)
+        public DinosaurAttackType(string type, int power, int accuracy)
         {
             this.type = type;
+            this.power = power;
+            this.accuracy = accuracy;
             
         }
     }
