@@ -16,7 +16,7 @@ namespace RobotsVsDinosaurs
         public DinosaurAttackType(string type)
         {
             this.type = type;
-
+            
         }
     }
 }

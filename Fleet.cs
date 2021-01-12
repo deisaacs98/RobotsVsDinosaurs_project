@@ -11,22 +11,35 @@ namespace RobotsVsDinosaurs
         //Robots are stored here.
 
         
-        public List<Robot> robots;
+        public Robot[] fleet=new Robot[3];
 
         
         public Robot robot1 = new Robot("Asimov");
         public Robot robot2 = new Robot("Bender");
         public Robot robot3 = new Robot("Data");
+
         
+
         public void AddRobotsToFleet()
         {
-            robots.Add(robot1);
-            robots.Add(robot2);
-            robots.Add(robot3);
+            fleet[0]=robot1;
+            fleet[1]=robot2;
+            fleet[2]=robot3;
+        }
+
+        public void AddWeaponsToCache()
+        {
+            for(int i=0;i<3;i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    fleet[i].cache[j] = fleet[i].ChooseWeapon();
+                }
+            }
+        
         }
         
 
-        
 
 
 
