@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace RobotsVsDinosaurs
 {
-    class Herd
+    public class Herd
     {
         //Dinosaurs are stored here.
 
-        public Dinosaur[] dinosaurs=new Dinosaur[3];
+        public Dinosaur[] dinosaurs;
 
-        Dinosaur dinosaur1 = new Dinosaur("T-Rex");
-        Dinosaur dinosaur2 = new Dinosaur("Velociraptor");
-        Dinosaur dinosaur3 = new Dinosaur("Ankylosaurus");
+        public Dinosaur dinosaur1 = new Dinosaur("T-Rex");
+        public Dinosaur dinosaur2 = new Dinosaur("Velociraptor");
+        public Dinosaur dinosaur3 = new Dinosaur("Ankylosaurus");
 
        
-        public Herd(Dinosaur[] dinosaurs)
+        public Herd()
         {
-            this.dinosaurs = dinosaurs;
+            this.dinosaurs = new Dinosaur[3];
         }
         public void AddDinosaursToHerd()
         {
@@ -30,12 +30,33 @@ namespace RobotsVsDinosaurs
 
         public void AddAttacks()
         {
-            for (int i = 0; i < 3; i++)
+            Console.WriteLine("Each dinosaur can choose four attacks. Choose wisely.");
+            Console.WriteLine(dinosaur1.type + ":");
+            for (int i = 0; i < 4; i++)
             {
-                for (int j = 0; j < 4; j++)
-                {
-                    dinosaurs[i].attacks[j] = dinosaurs[i].ChooseDinoAttack();
-                }
+                DinosaurAttackType attack = dinosaur1.ChooseDinoAttack();
+                dinosaur1.attacks[i] = attack;
+                
+                Console.WriteLine("You have added " + attack + " to your cache.");
+
+            }
+            Console.WriteLine(dinosaur2.type + ":");
+            for (int i = 0; i < 4; i++)
+            {
+                DinosaurAttackType attack = dinosaur2.ChooseDinoAttack();
+                dinosaur2.attacks[i] = attack;
+
+                Console.WriteLine("You have added " + attack + " to your cache.");
+
+            }
+            Console.WriteLine(dinosaur3.type + ":");
+            for (int i = 0; i < 4; i++)
+            {
+                DinosaurAttackType attack = dinosaur3.ChooseDinoAttack();
+                dinosaur3.attacks[i] = attack;
+
+                Console.WriteLine("You have added " + attack + " to your cache.");
+
             }
 
         }

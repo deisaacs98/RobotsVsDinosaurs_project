@@ -9,7 +9,7 @@ namespace RobotsVsDinosaurs
     public class DinosaurAttackType
     {
         public string type;
-        public int power = 100;
+        public int power;
         public int accuracy;
 
 

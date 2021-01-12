@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 
 namespace RobotsVsDinosaurs
 {
-    class Battlefield
+    public class Battlefield
     {
-        public Fleet fleet;
-        public Herd herd;
+        
+        public Fleet fleet = new Fleet();
+        
+        public Herd herd = new Herd();
         public Weapon weapon;
         public DinosaurAttackType attack;
-        public bool run = true;
+         
         
         
+        
+        int brokenBots = 0;
+        int deadDinos = 0;
+
+
         public Battlefield()
         {
         
@@ -66,11 +73,14 @@ namespace RobotsVsDinosaurs
             if(random1<=accuracy)
             {
                 dinosaur.health -= power;
+                Console.WriteLine(robot + " has attacked " + dinosaur + "!");
+                Console.WriteLine(robot + "'s power level is now " + robot.powerLevel);
+                Console.WriteLine(dinosaur + "'s health is now " + dinosaur.health);
             }
 
         }
 
-         public void AttackRobot(Dinosaur dinosaur, Robot robot)
+        public void AttackRobot(Dinosaur dinosaur, Robot robot)
         {
             bool validInput = true;
             while (validInput)
@@ -118,32 +128,109 @@ namespace RobotsVsDinosaurs
             }
 
         }
-
-        public void Battle()
+        public void RobotTurn()
         {
-            while (run)
+
+            for (int i = 0; i < 3; i++)
             {
-                fleet.AddRobotsToFleet();
-                herd.AddDinosaursToHerd();
-                fleet.AddWeaponsToCache();
-                herd.AddAttacks();
-                for (int i = 0; i < 3; i++)
+                Robot robot = fleet.fleet[i];
+
+                if (robot.powerLevel > 0 && robot.health > 0 && brokenBots < 3)
                 {
+
                     for (int j = 0; j < 3; j++)
                     {
-                        Robot robot = fleet.fleet[i];
                         Dinosaur dinosaur = herd.dinosaurs[j];
-                        if (robot.powerLevel > 0 && dinosaur.health > 0)
+                        if (dinosaur.energy > 0 && dinosaur.health > 0)
                         {
                             AttackDinosaur(robot, dinosaur);
+                            if (dinosaur.health <= 0)
+                            {
+                                deadDinos++;
+                            }
+                            if (robot.powerLevel <= 0)
+                            {
+                                brokenBots++;
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    continue;
+                }
+
+            }
+        }
+        public void DinoTurn()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Dinosaur dinosaur = herd.dinosaurs[i];
+
+                if (dinosaur.energy > 0 && dinosaur.health > 0 && deadDinos < 3)
+                {
+
+                    for (int j = 0; j < 3; j++)
+                    {
+                        Robot robot = fleet.fleet[j];
+                        if (robot.powerLevel > 0 && robot.health > 0)
+                        {
                             AttackRobot(dinosaur, robot);
+                            if (robot.health <= 0)
+                            {
+                                brokenBots++;
+                            }
+                            if (dinosaur.energy <= 0)
+                            {
+                                deadDinos++;
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            continue;
                         }
                     }
+
+                }
+                else
+                {
+                    continue;
                 }
             }
-            
-        }
 
-        
+        }
+        public void Battle()
+        {
+            fleet.AddRobotsToFleet();
+            herd.AddDinosaursToHerd();
+            fleet.AddWeaponsToCache();
+            herd.AddAttacks();
+
+            while (deadDinos<3&&brokenBots<3)
+            {
+                
+                
+                    
+            }
+            if(brokenBots==3)
+            {
+                Console.WriteLine("The dinosaurs have won the battle.");
+            }
+            else
+            {
+                Console.WriteLine("The robots have won the battle.");
+            }
+            Console.ReadLine();
+
+        }
     }
 }

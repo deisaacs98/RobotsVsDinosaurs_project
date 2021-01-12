@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RobotsVsDinosaurs
 {
-    class Dinosaur
+    public class Dinosaur
     {
         public string type;
         public int health = 100;
@@ -38,7 +38,7 @@ namespace RobotsVsDinosaurs
                 Console.WriteLine("j. Spit               k. Punch                    l. Kick");
 
                         
-        string selection = Console.ReadLine();
+                string selection = Console.ReadLine();
                 switch (selection)
                 {
                     case "a":
@@ -87,8 +87,8 @@ namespace RobotsVsDinosaurs
                         break;
                     default:
                         validInput = false;
-                        Console.WriteLine("Please enter the letter corresponding to the weapon.");
-                        break;
+                        Console.WriteLine("Please enter the letter corresponding to the attack.");
+                        continue;
 
                 }
 
