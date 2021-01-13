@@ -36,8 +36,10 @@ namespace RobotsVsDinosaurs
                 Console.WriteLine("d. Tail Whip          e. Growl                    f. Roar");
                 Console.WriteLine("g. Body Slam          h. Piledriver               i. Slap");
                 Console.WriteLine("j. Spit               k. Punch                    l. Kick");
+                Console.WriteLine("m. Hug                n. Lick                     o. Headbutt");
+                Console.WriteLine("p. Stampede           q. Stare                    r. Dance");
 
-                        
+
                 string selection = Console.ReadLine();
                 switch (selection)
                 {
@@ -119,6 +121,46 @@ namespace RobotsVsDinosaurs
                         attack.type = "Kick";
                         attack.power = 20;
                         attack.accuracy = 80;
+                        run = false;
+                        break;
+                    case "m":
+                        attack.type = "Hug";
+                        attack.power = 15;
+                        attack.accuracy = 90;
+                        run = false;
+
+                        break;
+                    case "n":
+                        attack.type = "Lick";
+                        attack.power = 10;
+                        attack.accuracy = 93;
+                        run = false;
+
+                        break;
+                    case "o":
+                        attack.type = "Headbutt";
+                        attack.power = 30;
+                        attack.accuracy = 90;
+                        run = false;
+                        break;
+                    case "p":
+                        attack.type = "Stampede";
+                        attack.power = 45;
+                        attack.accuracy = 97;
+                        run = false;
+
+                        break;
+                    case "q":
+                        attack.type = "Stare";
+                        attack.power = 0;
+                        attack.accuracy = 100;
+                        run = false;
+
+                        break;
+                    case "r":
+                        attack.type = "Dance";
+                        attack.power = 100;
+                        attack.accuracy = 100;
                         run = false;
                         break;
                     default:

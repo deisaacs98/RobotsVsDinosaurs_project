@@ -14,7 +14,10 @@ namespace RobotsVsDinosaurs
         public Herd herd = new Herd();
         public Weapon weapon;
         public DinosaurAttackType attack;
-         
+        public Dinosaur dinosaur;
+        public Robot robot;
+        public Weapon[] cache;
+        public DinosaurAttackType[] attacks;
         
         
         
@@ -29,15 +32,15 @@ namespace RobotsVsDinosaurs
 
         public void AttackDinosaur(Robot robot,Dinosaur dinosaur)
         {
-
-
             
+
             bool validInput = true;
-            while (validInput)
+            do
             {
-                Console.WriteLine(dinosaur + ":     Choose your attack:");
-                Console.WriteLine("a. " + dinosaur.attacks[0] + "           b. " + dinosaur.attacks[1]);
-                Console.WriteLine("c. " + dinosaur.attacks[2] + "           d. " + dinosaur.attacks[4]);
+                Console.Clear();
+                Console.WriteLine(robot.name + ":     Choose your attack:");
+                Console.WriteLine("a. " + robot.cache[0].type + "           b. " + robot.cache[1].type);
+                Console.WriteLine("c. " + robot.cache[2].type + "           d. " + robot.cache[3].type);
 
                 string selection = Console.ReadLine();
                 switch (selection)
@@ -45,26 +48,29 @@ namespace RobotsVsDinosaurs
 
                     case "a":
                         weapon = robot.cache[0];
+                        validInput = false;
 
                         break;
                     case "b":
                         weapon = robot.cache[1];
+                        validInput = false;
                         break;
                     case "c":
                         weapon = robot.cache[2];
+                        validInput = false;
                         break;
                     case "d":
                         weapon = robot.cache[3];
-
+                        validInput = false;
                         break;
                     default:
-                        validInput = false;
+                        
                         Console.WriteLine("Please enter the letter corresponding to the weapon.");
                         break;
                 }
-                
 
-            }
+
+            } while (validInput);
             robot.powerLevel -= 10;
             int accuracy = weapon.accuracy;
             int power = weapon.power;
@@ -73,9 +79,16 @@ namespace RobotsVsDinosaurs
             if(random1<=accuracy)
             {
                 dinosaur.health -= power;
-                Console.WriteLine(robot + " has attacked " + dinosaur + "!");
-                Console.WriteLine(robot + "'s power level is now " + robot.powerLevel);
-                Console.WriteLine(dinosaur + "'s health is now " + dinosaur.health);
+                Console.WriteLine(robot.name + " has attacked " + dinosaur.type + "!");
+                Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
+                Console.WriteLine(dinosaur.type + "'s health is now " + dinosaur.health);
+            }
+            else
+            {
+                dinosaur.health -= power;
+                Console.WriteLine(robot.name + " missed!");
+                Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
+                Console.WriteLine(dinosaur.type + "'s health is still " + dinosaur.health);
             }
 
         }
@@ -83,28 +96,32 @@ namespace RobotsVsDinosaurs
         public void AttackRobot(Dinosaur dinosaur, Robot robot)
         {
             bool validInput = true;
-            while (validInput)
+            do
             {
-                Console.WriteLine(dinosaur + ":     Choose your move.");
-                Console.WriteLine("a. " + dinosaur.attacks[0] + "           b. " + dinosaur.attacks[1]);
-                Console.WriteLine("c. " + dinosaur.attacks[2] + "           d. " + dinosaur.attacks[3]);
-                dinosaur.energy -= 10;
-                DinosaurAttackType attack;
+                Console.Clear();
+                Console.WriteLine(dinosaur.type + ":     Choose your move.");
+                Console.WriteLine("a. " + dinosaur.attacks[0].type + "           b. " + dinosaur.attacks[1].type);
+                Console.WriteLine("c. " + dinosaur.attacks[2].type + "           d. " + dinosaur.attacks[3].type);
+                
                 string selection = Console.ReadLine();
                 switch (selection)
                 {
 
                     case "a":
                         attack = dinosaur.attacks[0];
+                        validInput = false;
                         break;
                     case "b":
                         attack = dinosaur.attacks[1];
+                        validInput = false;
                         break;
                     case "c":
                         attack = dinosaur.attacks[2];
+                        validInput = false;
                         break;
                     case "d":
                         attack = dinosaur.attacks[3];
+                        validInput = false;
 
                         break;
                     default:
@@ -113,7 +130,7 @@ namespace RobotsVsDinosaurs
                         break;
 
                 }
-            }
+            } while (validInput);
             dinosaur.energy -= 10;
             int accuracy = attack.accuracy;
             int power = attack.power;
@@ -122,26 +139,36 @@ namespace RobotsVsDinosaurs
             if (random1 <= accuracy)
             {
                 robot.health -= power;
-                Console.WriteLine(dinosaur+" has attacked "+robot+"!");
-                Console.WriteLine(dinosaur+"'s energy is now "+dinosaur.energy);
+                Console.WriteLine(dinosaur.type+" has attacked "+robot.name+"!");
+                Console.WriteLine(dinosaur.type+"'s energy is now "+dinosaur.energy);
                 Console.WriteLine(robot+"'s health is now "+robot.health);
+            }
+            else
+            {
+                robot.health -= power;
+                Console.WriteLine(dinosaur.type + " missed!");
+                Console.WriteLine(dinosaur.type + "'s energy is now " + dinosaur.energy);
+                Console.WriteLine(robot + "'s health is still " + robot.health);
             }
 
         }
         public void RobotTurn()
         {
+            Robot robot;
+            Dinosaur dinosaur;
 
             for (int i = 0; i < 3; i++)
             {
-                Robot robot = fleet.fleet[i];
+                
+                robot = fleet.fleet[i];
 
                 if (robot.powerLevel > 0 && robot.health > 0 && brokenBots < 3)
                 {
 
                     for (int j = 0; j < 3; j++)
                     {
-                        Dinosaur dinosaur = herd.dinosaurs[j];
-                        if (dinosaur.energy > 0 && dinosaur.health > 0)
+                        dinosaur = herd.dinosaurs[j];
+                        if (dinosaur.health > 0)
                         {
                             AttackDinosaur(robot, dinosaur);
                             if (dinosaur.health <= 0)
@@ -166,22 +193,25 @@ namespace RobotsVsDinosaurs
                 {
                     continue;
                 }
-
+                break;
             }
+            
         }
         public void DinoTurn()
         {
+            Robot robot;
+            Dinosaur dinosaur;
             for (int i = 0; i < 3; i++)
             {
-                Dinosaur dinosaur = herd.dinosaurs[i];
+                dinosaur = herd.dinosaurs[i];
 
                 if (dinosaur.energy > 0 && dinosaur.health > 0 && deadDinos < 3)
                 {
 
                     for (int j = 0; j < 3; j++)
                     {
-                        Robot robot = fleet.fleet[j];
-                        if (robot.powerLevel > 0 && robot.health > 0)
+                        robot = fleet.fleet[j];
+                        if (robot.health > 0)
                         {
                             AttackRobot(dinosaur, robot);
                             if (robot.health <= 0)
@@ -205,6 +235,7 @@ namespace RobotsVsDinosaurs
                 {
                     continue;
                 }
+                break;
             }
 
         }
@@ -225,10 +256,12 @@ namespace RobotsVsDinosaurs
             }
             if(brokenBots==3)
             {
+                Console.Clear();
                 Console.WriteLine("The dinosaurs have won the battle.");
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("The robots have won the battle.");
             }
             Console.ReadLine();

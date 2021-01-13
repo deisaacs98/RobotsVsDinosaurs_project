@@ -32,27 +32,30 @@ namespace RobotsVsDinosaurs
         {
             DinosaurAttackType attack;
             Console.WriteLine("Each dinosaur can choose four attacks. Choose wisely.");
-            Console.WriteLine(dinosaur1.type + ":");
+            
             for (int i = 0; i < 4; i++)
             {
+                Console.WriteLine(dinosaur1.type + ":");
                 attack = dinosaur1.ChooseDinoAttack();
                 dinosaur1.attacks[i] = attack;
                 Console.Clear();
                 Console.WriteLine("You have added " + attack.type + " to your cache.");
 
             }
-            Console.WriteLine(dinosaur2.type + ":");
+            
             for (int i = 0; i < 4; i++)
             {
+                Console.WriteLine(dinosaur2.type + ":");
                 attack = dinosaur2.ChooseDinoAttack();
                 dinosaur2.attacks[i] = attack;
                 Console.Clear();
                 Console.WriteLine("You have added " + attack.type + " to your cache.");
 
             }
-            Console.WriteLine(dinosaur3.type + ":");
+            
             for (int i = 0; i < 4; i++)
             {
+                Console.WriteLine(dinosaur3.type + ":");
                 attack = dinosaur3.ChooseDinoAttack();
                 dinosaur3.attacks[i] = attack;
                 Console.Clear();
