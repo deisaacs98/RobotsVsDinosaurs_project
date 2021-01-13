@@ -38,6 +38,9 @@ namespace RobotsVsDinosaurs
         {
             Weapon weapon;
             Console.WriteLine("Each robot can carry four weapons. Choose wisely.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
 
             for (int i = 0; i < 4; i++)
             {

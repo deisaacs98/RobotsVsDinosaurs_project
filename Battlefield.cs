@@ -272,31 +272,65 @@ namespace RobotsVsDinosaurs
         }
         public void Battle()
         {
-            fleet.AddRobotsToFleet();
-            herd.AddDinosaursToHerd();
-            fleet.AddWeaponsToCache();
-            herd.AddAttacks();
-
-            while (deadDinos<3&&brokenBots<3)
+            bool runGame = true;
+            while (runGame)
             {
-                RobotTurn();
-                DinoTurn();
-
-                
-                    
-            }
-            if(brokenBots==3)
-            {
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("           ROBOTS VS DINOSAURS");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("         Press Enter to Continue");
+                Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine("The dinosaurs have won the battle.");
-            }
-            else
-            {
+                fleet.AddRobotsToFleet();
+                herd.AddDinosaursToHerd();
+                Console.WriteLine("Robots go first.");
+                fleet.AddWeaponsToCache();
+                Console.WriteLine("Press Enter to Continue");
+                Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine("The robots have won the battle.");
-            }
-            Console.ReadLine();
+                Console.WriteLine("Now it is the Dinosaurs turn.");
+                herd.AddAttacks();
+                Console.WriteLine("Press Enter to Continue");
+                Console.ReadLine();
 
+                while (deadDinos < 3 && brokenBots < 3)
+                {
+                    RobotTurn();
+                    DinoTurn();
+
+
+
+                }
+                if (brokenBots == 3)
+                {
+                    Console.Clear();
+                    Console.WriteLine("The dinosaurs have won the battle.");
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("The robots have won the battle.");
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Would you like to play again? (Y/N)");
+                string playerResponse = Console.ReadLine();
+                if (playerResponse == "y" || playerResponse == "Y")
+                {
+                    runGame = true;
+                    Console.Clear();
+                }
+                else
+                {
+                    runGame = false;
+                }
+            }
         }
     }
 }

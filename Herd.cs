@@ -39,7 +39,7 @@ namespace RobotsVsDinosaurs
                 attack = dinosaur1.ChooseDinoAttack();
                 dinosaur1.attacks[i] = attack;
                 Console.Clear();
-                Console.WriteLine("You have added " + attack.type + " to your cache.");
+                Console.WriteLine("You have added " + attack.type + " to your attacks.");
 
             }
             
@@ -49,7 +49,7 @@ namespace RobotsVsDinosaurs
                 attack = dinosaur2.ChooseDinoAttack();
                 dinosaur2.attacks[i] = attack;
                 Console.Clear();
-                Console.WriteLine("You have added " + attack.type + " to your cache.");
+                Console.WriteLine("You have added " + attack.type + " to your attacks.");
 
             }
             
@@ -60,7 +60,7 @@ namespace RobotsVsDinosaurs
                 dinosaur3.attacks[i] = attack;
                 Console.Clear();
 
-                Console.WriteLine("You have added " + attack.type + " to your cache.");
+                Console.WriteLine("You have added " + attack.type + " to your attacks.");
 
             }
 
