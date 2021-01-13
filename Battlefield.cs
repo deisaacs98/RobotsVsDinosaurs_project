@@ -89,6 +89,8 @@ namespace RobotsVsDinosaurs
                 Console.WriteLine(robot.name + " has attacked " + dinosaur.type + "!");
                 Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
                 Console.WriteLine(dinosaur.type + "'s health is now " + dinosaur.health);
+                Console.WriteLine();
+                Console.WriteLine("Press Enter to continue");
                 Console.ReadLine();
             }
             else
@@ -97,6 +99,8 @@ namespace RobotsVsDinosaurs
                 Console.WriteLine(robot.name + " missed!");
                 Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
                 Console.WriteLine(dinosaur.type + "'s health is still " + dinosaur.health);
+                Console.WriteLine();
+                Console.WriteLine("Press Enter to continue");
                 Console.ReadLine();
             }
 
@@ -161,6 +165,8 @@ namespace RobotsVsDinosaurs
                 Console.WriteLine(dinosaur.type+" has attacked "+robot.name+"!");
                 Console.WriteLine(dinosaur.type+"'s energy is now "+dinosaur.energy);
                 Console.WriteLine(robot.name+"'s health is now "+robot.health);
+                Console.WriteLine();
+                Console.WriteLine("Press Enter to continue");
                 Console.ReadLine();
             }
             else
@@ -169,6 +175,8 @@ namespace RobotsVsDinosaurs
                 Console.WriteLine(dinosaur.type + " missed!");
                 Console.WriteLine(dinosaur.type + "'s energy is now " + dinosaur.energy);
                 Console.WriteLine(robot.name + "'s health is still " + robot.health);
+                Console.WriteLine();
+                Console.WriteLine("Press Enter to continue");
                 Console.ReadLine();
             }
 
