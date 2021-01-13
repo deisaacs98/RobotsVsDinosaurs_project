@@ -82,6 +82,10 @@ namespace RobotsVsDinosaurs
             if(random1<=accuracy)
             {
                 dinosaur.health -= power;
+                if(dinosaur.health<0)
+                {
+                    dinosaur.health = 0;
+                }
                 Console.WriteLine(robot.name + " has attacked " + dinosaur.type + "!");
                 Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
                 Console.WriteLine(dinosaur.type + "'s health is now " + dinosaur.health);
@@ -150,6 +154,10 @@ namespace RobotsVsDinosaurs
             if (random1 <= accuracy)
             {
                 robot.health -= power;
+                if(robot.health<0)
+                {
+                    robot.health = 0;
+                }
                 Console.WriteLine(dinosaur.type+" has attacked "+robot.name+"!");
                 Console.WriteLine(dinosaur.type+"'s energy is now "+dinosaur.energy);
                 Console.WriteLine(robot.name+"'s health is now "+robot.health);
