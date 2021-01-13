@@ -89,7 +89,7 @@ namespace RobotsVsDinosaurs
             }
             else
             {
-                dinosaur.health -= power;
+                
                 Console.WriteLine(robot.name + " missed!");
                 Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
                 Console.WriteLine(dinosaur.type + "'s health is still " + dinosaur.health);
@@ -157,7 +157,7 @@ namespace RobotsVsDinosaurs
             }
             else
             {
-                robot.health -= power;
+  
                 Console.WriteLine(dinosaur.type + " missed!");
                 Console.WriteLine(dinosaur.type + "'s energy is now " + dinosaur.energy);
                 Console.WriteLine(robot.name + "'s health is still " + robot.health);
