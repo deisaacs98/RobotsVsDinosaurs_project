@@ -156,7 +156,7 @@ namespace RobotsVsDinosaurs
                         break;
 
                     default:
-                         
+                        Console.Clear();
                         Console.WriteLine("Please enter the letter corresponding to the weapon.");
                         break;
 

@@ -164,7 +164,7 @@ namespace RobotsVsDinosaurs
                         run = false;
                         break;
                     default:
-                        
+                        Console.Clear();
                         Console.WriteLine("Please enter the letter corresponding to the attack.");
                         break;
 

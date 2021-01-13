@@ -66,7 +66,7 @@ namespace RobotsVsDinosaurs
                         validInput = false;
                         break;
                     default:
-                        
+                        Console.Clear();
                         Console.WriteLine("Please enter the letter corresponding to the weapon.");
                         break;
                 }
@@ -86,6 +86,7 @@ namespace RobotsVsDinosaurs
                 {
                     dinosaur.health = 0;
                 }
+                Console.Clear();
                 Console.WriteLine(robot.name + " has attacked " + dinosaur.type + "!");
                 Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
                 Console.WriteLine(dinosaur.type + "'s health is now " + dinosaur.health);
@@ -95,7 +96,7 @@ namespace RobotsVsDinosaurs
             }
             else
             {
-                
+                Console.Clear();
                 Console.WriteLine(robot.name + " missed!");
                 Console.WriteLine(robot.name + "'s power level is now " + robot.powerLevel);
                 Console.WriteLine(dinosaur.type + "'s health is still " + dinosaur.health);
@@ -142,8 +143,8 @@ namespace RobotsVsDinosaurs
 
                         break;
                     default:
-                        
-                        
+
+                        Console.Clear();
                         Console.WriteLine("Please enter the letter corresponding to the weapon.");
                         break;
 
@@ -162,6 +163,7 @@ namespace RobotsVsDinosaurs
                 {
                     robot.health = 0;
                 }
+                Console.Clear();
                 Console.WriteLine(dinosaur.type+" has attacked "+robot.name+"!");
                 Console.WriteLine(dinosaur.type+"'s energy is now "+dinosaur.energy);
                 Console.WriteLine(robot.name+"'s health is now "+robot.health);
@@ -171,7 +173,7 @@ namespace RobotsVsDinosaurs
             }
             else
             {
-  
+                Console.Clear();
                 Console.WriteLine(dinosaur.type + " missed!");
                 Console.WriteLine(dinosaur.type + "'s energy is now " + dinosaur.energy);
                 Console.WriteLine(robot.name + "'s health is still " + robot.health);
